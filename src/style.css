@@ -54,6 +54,22 @@ button{
 }
 /*Weather div*/
 #weather-div{
-    background-color: var(--dark-color);
+    background-color: var(--bluish-color);
     color:white;
+    text-align: center;
+    padding: 20px 50px;
+    border-radius: 1rem;
+}
+#weather-div div{
+    margin-bottom: 1rem;
+}
+.city-name{
+    color:var(--light-color);
+    font-size: 3rem;
+}
+.temperature{
+    font-size: 2.5rem;
+}
+.feels-like,.humidity,.wind{
+    font-size: 1.5rem;
 }

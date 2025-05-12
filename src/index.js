@@ -48,6 +48,7 @@ function displayWeather(cityName){
 
 function fillWeatherDiv(data){
     const weatherDiv=document.getElementById("weather-div");
+    weatherDiv.style.backgroundColor="rgb(30,33,45)";
     removeAllChildNodes(weatherDiv);
     //getting Weather object data
     const cityNameText=data.cityName;
@@ -65,11 +66,18 @@ function fillWeatherDiv(data){
     const wind=document.createElement("div");
     //filling elements with data
     cityName.innerText=cityNameText;
-    temperature.innerText=`Temperature: ${temperatureText}`;
+    temperature.innerText=`${temperatureText} °F`;
     feelsLike.innerText=`Feels like: ${feelsLikeText}`;
     conditions.innerText=`Conditions: ${conditionsText}`;
     humidity.innerText=`Humidity: ${humidityText}`;
     wind.innerText=`Wind ${windText} km/h`;
+    //assigning classes to elements
+    cityName.className="city-name";
+    temperature.className="temperature";
+    feelsLike.className="feels-like";
+    conditions.className="conditions";
+    humidity.className="humidity";
+    wind.className="wind";
     //assigning weatherDiv its child nodes
     weatherDiv.appendChild(cityName);
     weatherDiv.appendChild(temperature);
@@ -83,7 +91,6 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-
 
 const form=document.getElementById("form");
 form.addEventListener("submit",(e)=>{
