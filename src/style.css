@@ -1,0 +1,59 @@
+:root{
+    --dark-color:rgb(30,33,45);
+    --light-color:rgb(172,180,244);
+    --bluish-color:rgb(104,112,224);
+}
+* {
+    margin:0;
+    padding: 0;
+}
+body{
+    font-family:"Roboto";
+    background-color: var(--bluish-color);
+}
+header{
+    background-color: var(--dark-color);
+    color:var(--light-color);
+    display: flex;
+    justify-content: center;
+    padding:2rem;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+header img{
+    width:50px;
+}
+main{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    gap:10px;
+    margin-bottom: 20px;
+}
+input{
+    padding:8px;
+    border-radius: 5px;
+    border:none;
+    font-size: 1rem;
+    
+}
+button{
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    color:white;
+    background-color: var(--dark-color);
+    font-size: 1rem;
+}
+/*Weather div*/
+#weather-div{
+    background-color: var(--dark-color);
+    color:white;
+}

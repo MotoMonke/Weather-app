@@ -1,4 +1,4 @@
-
+import "./style.css"
 async function getData(cityName){
     try {
         const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=us&key=AH3T5E9YZGFT3STYGKWFZH3DD&contentType=json`);
@@ -36,13 +36,55 @@ function createWeatherObj(cityName){
         return new Weather(city,temperature,feelsLike,conditions,humidity,wind);
     })
 }
+
+//DOM
 function displayWeather(cityName){
     createWeatherObj(cityName).then(function(weather){
         if(weather!==null){
-            console.log(weather);
+            fillWeatherDiv(weather);
         }
     });
 }
+
+function fillWeatherDiv(data){
+    const weatherDiv=document.getElementById("weather-div");
+    removeAllChildNodes(weatherDiv);
+    //getting Weather object data
+    const cityNameText=data.cityName;
+    const temperatureText=data.temperature;
+    const feelsLikeText=data.feelsLike;
+    const conditionsText=data.conditions;
+    const humidityText=data.humidity;
+    const windText=data.wind;
+    //creating weatherDiv elements
+    const cityName=document.createElement("div");
+    const temperature=document.createElement("div");
+    const feelsLike=document.createElement("div");
+    const conditions=document.createElement("div");
+    const humidity=document.createElement("div");
+    const wind=document.createElement("div");
+    //filling elements with data
+    cityName.innerText=cityNameText;
+    temperature.innerText=`Temperature: ${temperatureText}`;
+    feelsLike.innerText=`Feels like: ${feelsLikeText}`;
+    conditions.innerText=`Conditions: ${conditionsText}`;
+    humidity.innerText=`Humidity: ${humidityText}`;
+    wind.innerText=`Wind ${windText} km/h`;
+    //assigning weatherDiv its child nodes
+    weatherDiv.appendChild(cityName);
+    weatherDiv.appendChild(temperature);
+    weatherDiv.appendChild(feelsLike);
+    weatherDiv.appendChild(conditions);
+    weatherDiv.appendChild(humidity);
+    weatherDiv.appendChild(wind);
+}
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+
 const form=document.getElementById("form");
 form.addEventListener("submit",(e)=>{
     e.preventDefault();

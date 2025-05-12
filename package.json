@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "serve":"./node_modules/.bin/webpack serve"
+    "serve": "./node_modules/.bin/webpack serve"
   },
   "repository": {
     "type": "git",
